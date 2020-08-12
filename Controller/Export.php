@@ -24,7 +24,7 @@ class Export extends \Cockpit\AuthController {
 
         switch($type) {
             case 'json' : return $this->json($collection, $options);           break;
-            case 'csv'  : return $this->sheet($collection, $options, 'Csv');            break;
+            case 'csv'  : return $this->sheet($collection, $options, 'Csv');   break;
             case 'ods'  : return $this->sheet($collection, $options, 'Ods');   break;
             case 'xls'  : return $this->sheet($collection, $options, 'Xls');   break;
             case 'xlsx' : return $this->sheet($collection, $options, 'Xlsx');  break;
@@ -71,10 +71,21 @@ class Export extends \Cockpit\AuthController {
 
         $spreadsheet = new \SheetExport($opts);
 
-        // quick fix to enable _id
-        $collection['fields'][] = [
-            'name' => '_id',
-        ];
+        // quick fix to enable _id and other meta fields
+        $meta = $options['meta'] ?? null;
+        if (!$meta) $meta = ['_id'];
+        if ($meta === true || $meta === 1 || $meta === '1') {
+                $meta = [
+                '_id',
+                '_created',
+                '_modified',
+                '_mby',
+                '_by',
+            ];
+        }
+        foreach ($meta as $metaField) {
+            $collection['fields'][] = ['name' => $metaField];
+        }
 
         // table headers
         $c = 'A';
