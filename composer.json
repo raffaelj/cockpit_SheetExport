@@ -1,0 +1,26 @@
+{
+    "name": "raffaelj/cockpit-sheetexport",
+    "type": "cockpit-module",
+    "description": "Spreadsheet export Cockpit CMS",
+    "keywords": ["cockpit", "csv", "ods", "xls", "xlsx", "export"],
+    "homepage": "https://github.com/raffaelj/cockpit_SheetExport",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Raffael Jesche",
+            "homepage": "https://www.rlj.me"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.6",
+        "composer/installers": "^1.9"
+    },
+
+    "config": {
+        "vendor-dir": "lib/vendor",
+        "optimize-autoloader": true
+    },
+    "extra": {
+        "installer-name": "SheetExport"
+    }
+}
