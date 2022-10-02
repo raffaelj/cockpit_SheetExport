@@ -1,5 +1,11 @@
 # Sheet export addon for Cockpit CMS
 
+**This addon is not compatible with Cockpit CMS v2.**
+
+See also [Cockpit CMS v1 docs](https://v1.getcockpit.com/documentation), [Cockpit CMS v1 repo](https://github.com/agentejo/cockpit) and [Cockpit CMS v2 docs](https://getcockpit.com/documentation/), [Cockpit CMS v2 repo](https://github.com/Cockpit-HQ/Cockpit).
+
+---
+
 This is a draft. I didn't built a graphical user interface etc. and I did only a few tests. Actually, this is just a quick, modified version of the sheet export in my [Tables addon][1], where I added advanced filters and where I had control over the content types.
 
 Replace `http://localhost:8080` in the examples with `https://your-domain.com`, where Cockpit is available.
